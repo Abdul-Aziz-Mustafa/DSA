@@ -57,17 +57,20 @@ public class dsf_adjlist {
 
         }
 
-        public void dfs(int src, int dest,boolean [] is_visited) {
-            if ( is_visited[src] ) {
+        public void dfs(int src, int dest, boolean[] is_visited, String psf) {
+            if (src == dest) {
+                System.out.println(psf);
                 return;
             }
-            System.out.println(src);
+
             is_visited[src] = true;
             for (edge e : adjlist[src]) {
-                dfs(e.dst, dest, is_visited);
+                if (!is_visited[e.dst]) {
+  
+                    dfs(e.dst, dest, is_visited, psf + e.dst + " ");
+                }
             }
-
-
+            is_visited[src] = false;
 
         }
 
@@ -78,7 +81,7 @@ public class dsf_adjlist {
         // Scanner sc = new Scanner(System.in);
         // System.out.println("enter number of edges");
         // int v = sc.nextInt();
-        Graph graph = new Graph(7);
+        Graph graph = new Graph(8);
 
         graph.addedge(0, 3);
         graph.addedge(0, 1);
@@ -86,13 +89,15 @@ public class dsf_adjlist {
         graph.addedge(3, 4);
         graph.addedge(2, 3);
         graph.addedge(4, 5);
+        graph.addedge(4, 6);
         graph.addedge(5, 6);
         graph.printgraph();
-        boolean[] is_visited = new boolean[7];
-        for (int i = 0; i < 7; i++) {
+        boolean[] is_visited = new boolean[8];
+        for (int i = 0; i < 8; i++) {
             is_visited[i] = false;
         }
-        graph.dfs(0, 6, is_visited);
+
+        graph.dfs(0, 6, is_visited, 0 + " ");
 
     }
 
