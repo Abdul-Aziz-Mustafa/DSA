@@ -48,6 +48,11 @@ public class adj_list {
             adjlist[self_name].add(edge);
             adjlist[dst].add(redge);
         }
+        //for diercted 
+        public void addedge_directed(int source, int dst) {
+            edge edge = new edge(source, dst);
+            adjlist[source].add(edge);
+        }
 
         public void printgraph() {
             for (int i = 0; i < vertices; i++) {
