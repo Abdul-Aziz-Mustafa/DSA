@@ -132,7 +132,7 @@ public class min_spanning_tree {
         Graph graph = new Graph(v);
         graph.addedge(0, 1, 1);
         graph.addedge(0, 3, 2);
-        graph.addedge(1, 2, 3111);
+        graph.addedge(0, 2, 11);
         graph.addedge(3, 4, 4);
         graph.addedge(2, 3, 5);
         graph.addedge(4, 5, 66);
